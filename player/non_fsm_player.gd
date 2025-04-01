@@ -5,17 +5,18 @@ const TOP_SPEED = Vector2(90, 90)
 
 @onready var sprite = $AnimatedSprite2D
 @onready var input = InputManager.new()
+#Getter & Setter
 var facing = Vector2.RIGHT :
 	get: return facing
 	set(value):
 		if value == Vector2.ZERO: return
 		facing = value
 		sprite.flip_h = value.x == -1
-
+#Tracking states by variable boolean
 var moving = false
 var attacking = false
 var combo = false
-
+# Hanlde Event Physical
 func _physics_process(delta):
 	input.update(delta)
 	var has_movement_input = input.normalized != Vector2.ZERO
@@ -35,7 +36,7 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, ACCEL * delta)
 	
 	move_and_slide()
-
+# Attack Handle
 func _attack():
 	moving = false
 	attacking = true
@@ -46,7 +47,7 @@ func _attack():
 		anim_dir = "down" if facing.y == 1 else "up"
 	sprite.play("attack_%s_%d" % [anim_dir, 2 if combo else 1])
 	combo = not combo
-
+# 
 func _on_animation_finished():
 	if attacking:
 		if input.attack:

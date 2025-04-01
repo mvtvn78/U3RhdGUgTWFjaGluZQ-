@@ -1,6 +1,8 @@
+# Implement State
 extends State
 
 func enter():
+	# Run anim Idle
 	object.sprite.play("idle")
 
 func physics_update(delta):

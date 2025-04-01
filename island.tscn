@@ -612,7 +612,7 @@ metadata/_edit_group_ = true
 
 [node name="02" type="Sprite2D" parent="Decoration"]
 z_as_relative = false
-position = Vector2(552, 227)
+position = Vector2(557, 227)
 texture = ExtResource("9_dgbp5")
 offset = Vector2(0, -12)
 
@@ -656,8 +656,9 @@ motion_mode = 1
 script = ExtResource("14_38sg2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FsmPlayer"]
+position = Vector2(-14, 6)
 sprite_frames = SubResource("SpriteFrames_4xbbd")
-animation = &"idle"
+animation = &"attack_down_1"
 autoplay = "idle"
 offset = Vector2(0, -32)
 

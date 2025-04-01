@@ -1,8 +1,9 @@
+# Object owner FSM
 extends CharacterBody2D
 
 const ACCEL = 1000.0
 const TOP_SPEED = Vector2(90, 90)
-
+# Intialize needed variables 
 @onready var fsm = $FSM
 @onready var sprite = $AnimatedSprite2D
 @onready var input = InputManager.new()
